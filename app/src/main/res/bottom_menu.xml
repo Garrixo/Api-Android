@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_inicio"
+        android:icon="@drawable/icons8_home_page_96"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/action_buscar"
+        android:icon="@drawable/search"
+        android:title="Buscar" />
+    <item
+        android:id="@+id/action_tuBiblioteca"
+        android:icon="@drawable/icons8_book_shelf_48"
+        android:title="Tu biblioteca" />
+    <item
+        android:id="@+id/action_Premium"
+        android:icon="@drawable/spotify"
+        android:iconTint="@color/gray_shuffle"
+        android:title="Premium" />
+</menu>

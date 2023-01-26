@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterFragment">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@color/backgroundRiot">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="100dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/input_layout"/>
+        <com.google.android.material.textfield.TextInputEditText
+
+            android:id="@+id/etName"
+            android:hint="NOMBRE"
+            android:inputType="text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+
+            android:id="@+id/etSurname"
+            android:hint="APELLIDO"
+            android:inputType="text"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+        <EditText
+
+            android:id="@+id/etEmail"
+            android:inputType="textEmailAddress"
+            android:hint="EMAIL"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+
+            android:id="@+id/etUserRegister"
+            android:hint="USUARIO"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+
+
+        <EditText
+            android:id="@+id/etPasswordRegister"
+            android:hint="CONTRASEÑA"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:inputType="textPassword" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:paddingRight="60dp"
+            android:gravity="right"
+            android:textSize="10dp"
+            android:text="IR AL LOGIN"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <Button
+            android:layout_marginTop="130dp"
+            android:background="@color/riotColor"
+            android:id="@+id/btIrAlLogin"
+            android:text="Entrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

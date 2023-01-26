@@ -1,0 +1,46 @@
+{
+  "response": "success",
+  "results-for": "d",
+  "results": [
+    {
+      "title": "Super Mario Odyssey",
+      "date": "January 26, 2023",
+      "content": "Super Mario Odyssey, the critically acclaimed game released for the Nintendo Switch in 2017, has now sold over 15 million copies worldwide, making it one of the best-selling games on the platform.",
+      "description": {
+        "subtitle": "The classic platformer game",
+        "content": "Super Mario Bros. is a classic platformer game developed and published by Nintendo. It was first released in 1985 for the NES and has since become one of the most iconic and recognizable video games of all time. Players control Mario as he navigates through various worlds, collecting coins and power-ups, and defeating enemies to rescue Princess Toadstool.",
+        "imageofContent": "https://source.unsplash.com/random/1920x1080"
+      }
+    },
+    {
+      "title": "Another different new",
+      "date": "January 26, 2023",
+      "content": "Super Mario Odyssey, the critically acclaimed game released for the Nintendo Switch in 2017, has now sold over 15 million copies worldwide, making it one of the best-selling games on the platform.",
+      "description": {
+        "subtitle": "The classic platformer game",
+        "content": "Super Mario Bros. is a classic platformer game developed and published by Nintendo. It was first released in 1985 for the NES and has since become one of the most iconic and recognizable video games of all time. Players control Mario as he navigates through various worlds, collecting coins and power-ups, and defeating enemies to rescue Princess Toadstool.",
+        "imageofContent": "https://source.unsplash.com/random/1920x1080?city,night"
+      }
+    },
+    {
+      "title": "More differencies",
+      "date": "January 26, 2023",
+      "content": "Super Mario Odyssey, the critically acclaimed game released for the Nintendo Switch in 2017, has now sold over 15 million copies worldwide, making it one of the best-selling games on the platform.",
+      "description": {
+        "subtitle": "The classic platformer game",
+        "content": "Super Mario Bros. is a classic platformer game developed and published by Nintendo. It was first released in 1985 for the NES and has since become one of the most iconic and recognizable video games of all time. Players control Mario as he navigates through various worlds, collecting coins and power-ups, and defeating enemies to rescue Princess Toadstool.",
+        "imageofContent": "https://source.unsplash.com/random/1920x1080?beach"
+      }
+    },
+    {
+      "title": "Yey",
+      "date": "January 26, 2023",
+      "content": "Super Mario Odyssey, the critically acclaimed game released for the Nintendo Switch in 2017, has now sold over 15 million copies worldwide, making it one of the best-selling games on the platform.",
+      "description": {
+        "subtitle": "The classic platformer game",
+        "content": "Super Mario Bros. is a classic platformer game developed and published by Nintendo. It was first released in 1985 for the NES and has since become one of the most iconic and recognizable video games of all time. Players control Mario as he navigates through various worlds, collecting coins and power-ups, and defeating enemies to rescue Princess Toadstool.",
+        "imageofContent": "https://source.unsplash.com/random/1920x1080?videogames"
+      }
+    }
+  ]
+}

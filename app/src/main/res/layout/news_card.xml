@@ -1,0 +1,61 @@
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/card"
+    android:layout_width="180dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/purple_500">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@color/backgroundRiot">
+
+        <ImageView
+            android:id="@+id/ivNews"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:src="@drawable/ic_launcher_background"
+            android:scaleType="centerCrop" />
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="140dp"
+    android:orientation="vertical">
+            <TextView
+                android:textAllCaps="true"
+                android:background="@color/verydarkback"
+                android:textAlignment="center"
+                android:fontFamily="@font/valfont"
+                android:textSize="12dp"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_weight="0"
+                android:text="Titulo Noticia"
+                android:padding="5dp"
+                android:id="@+id/txtTitulo"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+
+
+        <TextView
+            android:textAllCaps="true"
+            android:background="@color/verydarkback"
+            android:textAlignment="center"
+            android:textSize="10dp"
+            android:fontFamily="@font/valfont"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="14dp"
+            android:layout_weight="0"
+            android:text="Subtitulo"
+            android:padding="0dp"
+            android:id="@+id/txtFecha"
+            android:textAppearance="?attr/textAppearanceHeadline6" />
+</LinearLayout>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

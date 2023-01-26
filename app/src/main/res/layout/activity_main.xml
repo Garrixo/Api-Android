@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/darkback">
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@color/verydarkback"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/txtPaginaTitulo"
+        android:textColor="@color/riotColor"
+        android:text="VALORANT NEWS"
+        android:textSize="40dp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/valfont"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/bottom_navigation_view"
+        android:orientation="vertical" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/verydarkback"
+        app:itemIconTint="@color/riotColor"
+
+        android:fontFamily="@font/valfont"
+        android:textAllCaps="true"
+        app:itemTextColor="@color/riotColor"
+        android:id="@+id/bottom_navigation_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav"/>
+</RelativeLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewsDetailFragment"
+    android:background="@color/backgroundRiot"
+    android:orientation="vertical">
+
+
+    <TextView
+
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:id="@+id/txtSub"
+        android:textColor="@color/riotColor"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:fontFamily="@font/valfont"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="subtitle" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:textColor="@color/black"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:id="@+id/txtContenido"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <ImageView
+            android:id="@+id/ivImagenContenido"
+            android:layout_width="350dp"
+            android:layout_height="350dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
