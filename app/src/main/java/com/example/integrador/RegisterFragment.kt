@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 
@@ -34,12 +35,12 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val inputLayoutName: TextInputLayout = view.findViewById(R.id.etName)
-        val inputLayoutSurname: TextInputLayout = view.findViewById(R.id.etSurname)
-        val inputLayoutEmail: TextInputLayout = view.findViewById(R.id.etEmail)
-        val inputLayoutUser: TextInputLayout = view.findViewById(R.id.etUserRegister)
-        val inputLayoutPassword: TextInputLayout = view.findViewById(R.id.etPasswordRegister)
-        val btIrAlLogin: Button = view.findViewById(R.id.btIrAlLogin)
+        val inputLayoutName: TextInputEditText = view.findViewById(R.id.etName)
+        val inputLayoutSurname: TextInputEditText = view.findViewById(R.id.etSurname)
+        val inputLayoutEmail: TextInputEditText = view.findViewById(R.id.etEmail)
+        val inputLayoutUser: TextInputEditText = view.findViewById(R.id.etUserRegister)
+        val inputLayoutPassword: TextInputEditText = view.findViewById(R.id.etPasswordRegister)
+        val brRegister: Button = view.findViewById(R.id.btRegister)
 
 
 
@@ -56,39 +57,35 @@ class RegisterFragment : Fragment() {
         }
 
         fun isValidName(): Boolean {
-            return inputLayoutName.editText?.text.toString().isNotEmpty()
+            return inputLayoutName.text.toString().isNotEmpty()
         }
 
         fun isValidSurname(): Boolean {
-            return inputLayoutSurname.editText?.text.toString().isNotEmpty()
+            return inputLayoutSurname.text.toString().isNotEmpty()
         }
 
         fun isValidEmail(): Boolean {
-            val email = inputLayoutEmail.editText?.text.toString().trim()
+            val email = inputLayoutEmail.text.toString().trim()
             return email.isNotEmpty() && isValidEmail(email)
         }
 
         fun isValidUser(): Boolean {
-            return inputLayoutUser.editText?.text.toString().isNotEmpty()
+            return inputLayoutUser.text.toString().isNotEmpty()
         }
 
         fun isValidPassword(): Boolean {
-            val password = inputLayoutPassword.editText?.text.toString().trim()
+            val password = inputLayoutPassword.text.toString().trim()
             return password.isNotEmpty() && password.length >= 8
         }
 
 
         fun isAllValid(): Boolean {
-            return !inputLayoutName.isErrorEnabled &&
-                    !inputLayoutSurname.isErrorEnabled &&
-                    !inputLayoutEmail.isErrorEnabled &&
-                    !inputLayoutUser.isErrorEnabled &&
-                    !inputLayoutPassword.isErrorEnabled
+            return true
         }
 
 
-        view.findViewById<Button>(R.id.btRegistro).isEnabled = isAllValid()
-        view.findViewById<Button>(R.id.btRegistro).setOnClickListener {
+        view.findViewById<Button>(R.id.btRegister).isEnabled = true
+        view.findViewById<Button>(R.id.btRegister).setOnClickListener {
             if (isValidName() && isValidSurname() && isValidEmail() && isValidUser() && isValidPassword()) {
                 // proceed with login
             }
