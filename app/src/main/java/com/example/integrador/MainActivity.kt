@@ -25,6 +25,14 @@ class MainActivity : AppCompatActivity() {
                     goToFragment(LoginFragment())
                     true
                 }
+                R.id.btFavourite -> {
+                    goToFragment(FavFragment())
+                    true
+                }
+                R.id.btSearch -> {
+                    goToFragment(SearchFragment())
+                    true
+                }
                 else -> false
             }
         }

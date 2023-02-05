@@ -48,8 +48,8 @@
             android:layout_height="20dp"/>
 
         <Button
+            android:backgroundTint="@color/riotColor"
             android:layout_marginTop="130dp"
-            android:background="@color/riotColor"
             android:id="@+id/btLogearse"
             android:text="Entrar"
             android:layout_width="wrap_content"
