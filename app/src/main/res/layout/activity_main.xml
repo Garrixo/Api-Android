@@ -12,6 +12,7 @@
     android:background="@color/verydarkback"
     android:gravity="center">
 
+
     <TextView
         android:id="@+id/txtPaginaTitulo"
         android:textColor="@color/riotColor"
