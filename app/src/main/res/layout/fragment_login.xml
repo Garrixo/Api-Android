@@ -26,15 +26,14 @@
         <EditText
 
             android:id="@+id/etUser"
-            android:hint="USER"
+            android:hint="E-MAIL"
             android:layout_width="300dp"
             android:layout_height="wrap_content"/>
         <EditText
             android:id="@+id/etPassword"
-            android:hint="PASSWORD"
+            android:hint="CONTRASEÑA"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:autofillHints=""
             android:inputType="textPassword" />
 
         <TextView

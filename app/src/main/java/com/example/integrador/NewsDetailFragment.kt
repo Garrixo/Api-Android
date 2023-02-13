@@ -26,7 +26,7 @@ class NewsDetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-        val new = arguments?.getSerializable("new") as? NewsJson.Result
+        val new = arguments?.getSerializable("new") as? NewsResponse.Data
 
 
         val tvSub = view.findViewById<TextView>(R.id.txtSub)
@@ -34,12 +34,12 @@ class NewsDetailFragment : Fragment() {
         val ivImagen = view.findViewById<ImageView>(R.id.ivImagenContenido)
 
         if (new != null) {
-            activity?.findViewById<TextView>(R.id.txtPaginaTitulo)!!.text = new.title
+            activity?.findViewById<TextView>(R.id.txtPaginaTitulo)!!.text = new.attributes.title
 
-            tvSub.text = new.description.subtitle
-            tvCont.text = new.content
+            tvSub.text = new.attributes.subtitle
+            tvCont.text = new.attributes.content
 
-            Picasso.get().load(new.description.imageofContent).into(ivImagen)
+            Picasso.get().load(new.attributes.urlImages).into(ivImagen)
         } else {
             tvSub.text = "TEST"
         }

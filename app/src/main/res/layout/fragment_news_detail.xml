@@ -1,49 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NewsDetailFragment"
     android:background="@color/backgroundRiot"
+    android:overScrollMode="ifContentScrolls"
     android:orientation="vertical">
 
-
-    <TextView
-
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="40dp"
-        android:gravity="center"
-        android:textAlignment="center"
-        android:textAllCaps="true"
-        android:id="@+id/txtSub"
-        android:textColor="@color/riotColor"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:fontFamily="@font/valfont"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:text="subtitle" />
+        android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <TextView
-            android:textColor="@color/black"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/txtContenido"
-
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <ImageView
-            android:id="@+id/ivImagenContenido"
-            android:layout_width="350dp"
-            android:layout_height="350dp"/>
+            android:layout_height="match_parent">
 
-    </LinearLayout>
 
-</LinearLayout>
+            <TextView
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:id="@+id/txtSub"
+                android:textColor="@color/riotColor"
+                android:textStyle="bold"
+                android:textSize="30dp"
+                android:fontFamily="@font/valfont"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:text="subtitle" />
+
+                <TextView
+                    android:layout_below="@id/txtSub"
+                    android:layout_marginTop="40dp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/txtContenido"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_margin="30dp"
+                    android:layout_below="@+id/txtContenido"
+                    android:id="@+id/ivImagenContenido"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"/>
+
+        </RelativeLayout>
+
+            </ScrollView>
+
+
+</RelativeLayout>

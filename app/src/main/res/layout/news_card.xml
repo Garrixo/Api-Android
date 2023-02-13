@@ -15,7 +15,7 @@
         <ImageView
             android:id="@+id/ivNews"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="200dp"
             android:src="@drawable/ic_launcher_background"
             android:scaleType="centerCrop" />
 
@@ -23,20 +23,20 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="140dp"
+    android:layout_marginTop="150dp"
     android:orientation="vertical">
             <TextView
                 android:textAllCaps="true"
                 android:background="@color/verydarkback"
                 android:textAlignment="center"
                 android:fontFamily="@font/valfont"
-                android:textSize="12dp"
+                android:textSize="20dp"
                 android:textColor="@color/white"
                 android:layout_width="match_parent"
-                android:layout_height="26dp"
+                android:layout_height="30dp"
                 android:layout_weight="0"
                 android:text="Titulo Noticia"
-                android:padding="5dp"
+                android:padding="3dp"
                 android:id="@+id/txtTitulo"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -46,14 +46,14 @@
             android:textAllCaps="true"
             android:background="@color/verydarkback"
             android:textAlignment="center"
-            android:textSize="10dp"
+            android:textSize="11dp"
             android:fontFamily="@font/valfont"
             android:textColor="@color/white"
             android:layout_width="match_parent"
-            android:layout_height="14dp"
+            android:layout_height="24dp"
             android:layout_weight="0"
             android:text="Subtitulo"
-            android:padding="0dp"
+            android:padding="5dp"
             android:id="@+id/txtFecha"
             android:textAppearance="?attr/textAppearanceHeadline6" />
 </LinearLayout>

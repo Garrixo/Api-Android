@@ -1,6 +1,7 @@
 package com.example.integrador
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,12 +9,18 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class NewsFragment : Fragment() {
 
-
+    private var swiperefresh: SwipeRefreshLayout? = null
+    val TAG = "MainActivity"
+    var data: ArrayList<NewsResponse.Data> = ArrayList()
 
 
     private var adapter: NewsAdapter? = null
@@ -31,6 +38,9 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ApiRest.initService()
+
+
         val toolbar = (requireActivity() as MainActivity).findViewById<TextView>(R.id.txtPaginaTitulo)
         toolbar.text = "Valorant news"
 
@@ -39,7 +49,7 @@ class NewsFragment : Fragment() {
 
         rvAgents.layoutManager = mLayoutManager
 
-        adapter = NewsAdapter(getNewsInfo()) { new ->
+        adapter = NewsAdapter(data) { new ->
 
             activity?.let {
                 val fragment = NewsDetailFragment()
@@ -57,29 +67,37 @@ class NewsFragment : Fragment() {
         }
         adapter?.notifyDataSetChanged()
         rvAgents.adapter = adapter
+        getNewsInfo()
 
     }
 
-    fun getNewsInfo(): ArrayList<NewsJson.Result> {
-        val gson = Gson()
-        val jsonFile = context?.assets?.open("news.json")
-        val jsonString = if (jsonFile != null) {
-            jsonFile.bufferedReader().use { it.readText() }
-        } else {
-            null
-        }
-        print(jsonString)
-        if (jsonString == null) {
-            return emptyArrayList()
-        } else {
+    fun getNewsInfo() {
+        val call = ApiRest.service.getNews("Bearer ${ApiRest.apiKey}")
+        call.enqueue(object : Callback<NewsResponse> {
+            override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
+                val body = response.body()
+                if (response.isSuccessful && body != null) {
+                    Log.i(TAG, body.toString())
+                    data.clear()
+                    data.addAll(body.data)
+                    Log.i(TAG, data.toString())
+                    adapter?.notifyDataSetChanged()
+// Imprimir aqui el listado con logs
+                } else {
+                    Log.e(TAG, response.errorBody()?.string() ?: "Error")
+                }
 
-            val news: NewsJson = gson.fromJson(jsonString, NewsJson::class.java)
-            return ArrayList<NewsJson.Result>(news.results)
+                swiperefresh?.isRefreshing = false
+            }
+            override fun onFailure(call: Call<NewsResponse>, t: Throwable) {
+                Log.e(TAG, t.message.toString())
 
-        }
+                swiperefresh?.isRefreshing = false
+            }
+        })
 
     }
-    fun emptyArrayList(): ArrayList<NewsJson.Result> {
+    fun emptyArrayList(): ArrayList<NewsResponse.Data> {
         return ArrayList()
     }
 
