@@ -10,12 +10,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val bottom_navigation_view = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
+        //val bottom_navigation_view = findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 
-        supportFragmentManager.beginTransaction().replace(R.id.mainContainer, NewsFragment()).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.mainContainer, LoginFragment())
+            .commit()
 
 
-        bottom_navigation_view.setOnNavigationItemSelectedListener { menuItem ->
+        /*bottom_navigation_view.setOnNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.btHome -> {
                     goToFragment(NewsFragment())
@@ -36,8 +37,7 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
-        bottom_navigation_view.selectedItemId = R.id.btHome
-
+        bottom_navigation_view.selectedItemId = R.id.btHome*/
     }
 
     fun goToFragment(fragment: Fragment) {
