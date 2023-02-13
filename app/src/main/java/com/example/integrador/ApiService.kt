@@ -17,4 +17,9 @@ interface ApiService {
     fun doLogin(
         @Body request: ApiRest.LoginRequest
     ): Call<UsersResponse>
+
+    @POST("auth/local/register")
+    fun doRegister(
+        @Body request: ApiRest.RegisterRequest
+    ): Call<RegisterResponse>
 }

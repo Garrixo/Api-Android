@@ -1,6 +1,8 @@
 package com.example.integrador
 
 import android.os.Bundle
+import android.text.Editable
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +12,20 @@ import android.widget.Button
 import android.widget.TextView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class RegisterFragment : Fragment() {
+
+
+    val TAG = "MainActivity"
+    lateinit var inputLayoutName: TextInputEditText
+    lateinit var inputLayoutSurname: TextInputEditText
+    lateinit var inputLayoutEmail: TextInputEditText
+    lateinit var inputLayoutUser: TextInputEditText
+    lateinit var inputLayoutPassword: TextInputEditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,11 +48,11 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val inputLayoutName: TextInputEditText = view.findViewById(R.id.etName)
-        val inputLayoutSurname: TextInputEditText = view.findViewById(R.id.etSurname)
-        val inputLayoutEmail: TextInputEditText = view.findViewById(R.id.etEmail)
-        val inputLayoutUser: TextInputEditText = view.findViewById(R.id.etUserRegister)
-        val inputLayoutPassword: TextInputEditText = view.findViewById(R.id.etPasswordRegister)
+        inputLayoutName= view.findViewById(R.id.etName)
+        inputLayoutSurname= view.findViewById(R.id.etSurname)
+        inputLayoutEmail = view.findViewById(R.id.etEmail)
+        inputLayoutUser = view.findViewById(R.id.etUserRegister)
+        inputLayoutPassword= view.findViewById(R.id.etPasswordRegister)
         val brRegister: Button = view.findViewById(R.id.btRegister)
 
 
@@ -79,15 +92,21 @@ class RegisterFragment : Fragment() {
         }
 
 
-        fun isAllValid(): Boolean {
-            return true
+        if(isValidName() && isValidEmail() && isValidUser() && isValidSurname() && isValidPassword()) {
+
+
         }
 
 
         view.findViewById<Button>(R.id.btRegister).isEnabled = true
         view.findViewById<Button>(R.id.btRegister).setOnClickListener {
             if (isValidName() && isValidSurname() && isValidEmail() && isValidUser() && isValidPassword()) {
-                // proceed with login
+
+
+                register()
+
+
+
             }
         }
 
@@ -102,6 +121,34 @@ class RegisterFragment : Fragment() {
 
         }
 
+    }
+
+    fun register() {
+
+        val registerRequest = ApiRest.RegisterRequest(inputLayoutUser.context.toString(), inputLayoutEmail.context.toString(), inputLayoutPassword.context.toString(), false)
+
+        val call = ApiRest.service.doRegister(registerRequest)
+
+        call.enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
+                val body = response.body()
+
+                if (response.isSuccessful && body != null) {
+                    var registerResponse = response.body()
+                    print(registerResponse)
+
+
+// Imprimir aqui el listado con logs
+                } else {
+                    Log.e(TAG, response.errorBody()?.string() ?: "Error")
+                }
+
+            }
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Log.e(TAG, t.message.toString())
+
+            }
+        })
     }
 
 }

@@ -102,8 +102,7 @@ class LoginFragment : Fragment() {
         }
     }
 
-    fun login(email: Editable? = etUser.text) {
-        print(email)
+    fun login() {
 
         val loginRequest = ApiRest.LoginRequest(etUser.text.toString(), password)
 
