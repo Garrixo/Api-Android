@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class NewsAdapter(private val data: ArrayList<NewsResponse.Data>, val onClick:(NewsResponse.Data) ->Unit) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private var data: ArrayList<NewsResponse.Data>, val onClick:(NewsResponse.Data) ->Unit) : RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.news_card, parent, false)
         return ViewHolder(view)
@@ -41,5 +41,10 @@ class NewsAdapter(private val data: ArrayList<NewsResponse.Data>, val onClick:(N
             }
         }
 
+    }
+
+    fun updateData(newData: ArrayList<NewsResponse.Data>) {
+        data = newData
+        notifyDataSetChanged()
     }
 }

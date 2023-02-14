@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -69,6 +70,29 @@ class NewsFragment : Fragment() {
         adapter?.notifyDataSetChanged()
         rvAgents.adapter = adapter
         getNewsInfo()
+
+        val searchView = view.findViewById<SearchView>(R.id.search_view)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                // Called when the user submits the query
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                val searchText = searchView.query.toString()
+
+                val filteredData = if (!newText.isNullOrEmpty()) {
+                    data.filter { it.attributes.title.contains(searchText, true) }
+                } else {
+                    data
+                }
+
+                adapter?.updateData(ArrayList(filteredData))
+
+                return true
+            }
+
+        })
 
     }
 
