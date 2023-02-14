@@ -2,11 +2,7 @@ package com.example.integrador
 
 import android.text.Editable
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
     @GET("news")
@@ -22,4 +18,11 @@ interface ApiService {
     fun doRegister(
         @Body request: ApiRest.RegisterRequest
     ): Call<RegisterResponse>
+
+    @PUT("news/{id}")
+    fun updateNew(
+        @Header("Authorization") apikey: String,
+        @Path("id") newId: String,
+        @Body request: ApiRest.upNew
+    ): Call<EditNewResponse>
 }

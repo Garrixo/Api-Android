@@ -12,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.view.isVisible
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
 import retrofit2.Callback
@@ -45,6 +47,11 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        ApiRest.initService()
+        //navView = activity?.findViewById(R.id.bottom_nav)!!
+        //navView.visibility = View.GONE
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.isVisible = false
+
         val toolbar =
             (requireActivity() as MainActivity).findViewById<TextView>(R.id.txtPaginaTitulo)
         toolbar.text = "LOGIN"
@@ -76,8 +83,8 @@ class LoginFragment : Fragment() {
         loginButton.setOnClickListener {
             if (inputLayout.error == null) {
                 password = view.findViewById<EditText>(R.id.etPassword).text.toString()
-                print(password)
                 login()
+
 
             } else {
                 val builder = AlertDialog.Builder(this@LoginFragment.context)
@@ -102,6 +109,12 @@ class LoginFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.isVisible = true
+
+    }
+
     fun login() {
 
         val loginRequest = ApiRest.LoginRequest(etUser.text.toString(), password)
@@ -115,6 +128,16 @@ class LoginFragment : Fragment() {
                 if (response.isSuccessful && body != null) {
                     var loginResponse = response.body()
                     print(loginResponse)
+                    if (loginResponse != null) {
+                        if(loginResponse.user.admin) {
+
+                            goToFragment(AdminNewsFragment())
+
+                        } else {
+                            goToFragment(NewsFragment())
+                        }
+                    }
+
 
 
 // Imprimir aqui el listado con logs
@@ -128,5 +151,11 @@ class LoginFragment : Fragment() {
 
             }
         })
+    }
+    fun goToFragment(fragment: Fragment) {
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().addToBackStack(null)
+                .replace(R.id.mainContainer, fragment).commit()
+        }
     }
 }

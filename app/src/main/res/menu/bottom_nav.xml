@@ -1,19 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottom_nav">
     <item
         android:id="@+id/btHome"
         android:icon="@drawable/home"
         android:title="Inicio" />
+
     <item
-        android:id="@+id/btFavourite"
-        android:icon="@drawable/favoritos"
-        android:title="Favoritos" />
-    <item
-        android:id="@+id/btSearch"
-        android:icon="@drawable/buscar"
-        android:title="Buscar" />
-    <item
-        android:id="@+id/btLogin"
+        android:id="@+id/btUsuario"
         android:icon="@drawable/user"
-        android:title="Iniciar sesión" />
+        android:title="Usuario" />
 </menu>

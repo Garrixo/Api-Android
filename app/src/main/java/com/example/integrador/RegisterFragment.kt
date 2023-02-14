@@ -10,6 +10,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.core.view.isVisible
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import retrofit2.Call
@@ -19,6 +21,7 @@ import retrofit2.Response
 
 class RegisterFragment : Fragment() {
 
+    lateinit var navView: BottomNavigationView
 
     val TAG = "MainActivity"
     lateinit var inputLayoutName: TextInputEditText
@@ -47,6 +50,14 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        ApiRest.initService()
+
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.isVisible = false
+
+
+
+        navView = view.findViewById(R.id.bottom_nav)
+        navView.visibility = View.GONE
 
         inputLayoutName= view.findViewById(R.id.etName)
         inputLayoutSurname= view.findViewById(R.id.etSurname)
@@ -123,6 +134,12 @@ class RegisterFragment : Fragment() {
 
     }
 
+    override fun onStop() {
+        super.onStop()
+        activity?.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)?.isVisible = true
+
+    }
+
     fun register() {
 
         val registerRequest = ApiRest.RegisterRequest(inputLayoutUser.context.toString(), inputLayoutEmail.context.toString(), inputLayoutPassword.context.toString(), false)
@@ -136,6 +153,15 @@ class RegisterFragment : Fragment() {
                 if (response.isSuccessful && body != null) {
                     var registerResponse = response.body()
                     print(registerResponse)
+                    if (registerResponse != null) {
+                        if(registerResponse.user.admin) {
+
+                            goToFragment(AdminNewsFragment())
+
+                        } else {
+                            goToFragment(NewsFragment())
+                        }
+                    }
 
 
 // Imprimir aqui el listado con logs
@@ -149,6 +175,13 @@ class RegisterFragment : Fragment() {
 
             }
         })
+    }
+
+    fun goToFragment(fragment: Fragment) {
+        activity?.let {
+            it.supportFragmentManager.beginTransaction().addToBackStack(null)
+                .replace(R.id.mainContainer, fragment).commit()
+        }
     }
 
 }

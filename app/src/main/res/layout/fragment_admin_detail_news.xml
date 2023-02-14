@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AdminDetailNewsFragment"
+        android:background="@color/backgroundRiot"
+        android:overScrollMode="ifContentScrolls"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:id="@+id/txtTituloEdit"
+                    android:textColor="@color/riotColor"
+                    android:textStyle="bold"
+                    android:textSize="25dp"
+                    android:fontFamily="@font/valfont"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="title" />
+
+
+                <EditText
+                    android:layout_below="@id/txtTituloEdit"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:id="@+id/txtSub"
+                    android:textColor="@color/riotColor"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:fontFamily="@font/valfont"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:text="subtitle" />
+
+                <EditText
+                    android:layout_below="@id/txtSub"
+                    android:layout_marginTop="40dp"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:id="@+id/txtContenido"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:layout_margin="30dp"
+                    android:layout_below="@+id/txtContenido"
+                    android:id="@+id/ivImagenContenido"
+                    android:layout_width="350dp"
+                    android:layout_height="350dp"/>
+
+                <Button
+                    android:backgroundTint="@color/riotColor"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginLeft="150dp"
+                    android:id="@+id/btSaveNew"
+                    android:layout_below="@+id/ivImagenContenido"
+                    android:text="Guardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+
+    </RelativeLayout>

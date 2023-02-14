@@ -9,9 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.squareup.picasso.Picasso
 
 class NewsDetailFragment : Fragment() {
+
 
 
     override fun onCreateView(
@@ -24,6 +26,7 @@ class NewsDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
 
 
         val new = arguments?.getSerializable("new") as? NewsResponse.Data

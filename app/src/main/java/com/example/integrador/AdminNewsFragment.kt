@@ -10,21 +10,11 @@ import android.widget.TextView
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class NewsFragment : Fragment() {
-
-    private var swiperefresh: SwipeRefreshLayout? = null
-    val TAG = "MainActivity"
-    var data: ArrayList<NewsResponse.Data> = ArrayList()
-
-
-    private var adapter: NewsAdapter? = null
+class AdminNewsFragment : Fragment() {
 
 
 
@@ -33,8 +23,16 @@ class NewsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_news, container, false)
+        return inflater.inflate(R.layout.fragment_admin_news, container, false)
     }
+
+    private var swiperefresh: SwipeRefreshLayout? = null
+    val TAG = "MainActivity"
+    var data: ArrayList<NewsResponse.Data> = ArrayList()
+
+
+    private var adapter: NewsAdapter? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -53,7 +51,7 @@ class NewsFragment : Fragment() {
         adapter = NewsAdapter(data) { new ->
 
             activity?.let {
-                val fragment = NewsDetailFragment()
+                val fragment = AdminDetailNewsFragment()
                 fragment.arguments = Bundle()
                 fragment.arguments?.putSerializable("new", new)
 
