@@ -80,7 +80,7 @@ class NewsFragment : Fragment() {
                 if (response.isSuccessful && body != null) {
                     Log.i(TAG, body.toString())
                     data.clear()
-                    data.addAll(body.data)
+                    data.addAll(body.data.sortedByDescending { it.attributes.publishedAt })
                     Log.i(TAG, data.toString())
                     adapter?.notifyDataSetChanged()
 // Imprimir aqui el listado con logs
