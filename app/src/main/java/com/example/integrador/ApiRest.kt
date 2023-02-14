@@ -30,9 +30,13 @@ object ApiRest {
         val admin: Boolean
     )
     data class upNew(
-        val Title: String,
-        val Subtitle: String,
-        val Content: String,
-        val urlImages: String
-    )
+        val data: Data,
+    ) {
+        data class Data(
+            val Title: String,
+            val Subtitle: String,
+            val Content: String,
+            val urlImages: String
+        )
+    }
 }

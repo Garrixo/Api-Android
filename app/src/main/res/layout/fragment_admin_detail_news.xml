@@ -61,25 +61,26 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <EditText
-                    android:layout_margin="30dp"
+                    android:layout_margin="10dp"
                     android:layout_below="@+id/txtContenido"
                     android:id="@+id/ivImagenContenido"
-                    android:layout_width="350dp"
-                    android:layout_height="350dp"/>
-
-                <Button
-                    android:backgroundTint="@color/riotColor"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginLeft="150dp"
-                    android:id="@+id/btSaveNew"
-                    android:layout_below="@+id/ivImagenContenido"
-                    android:text="Guardar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+
+
             </RelativeLayout>
 
+
+
         </ScrollView>
+            <Button
+                android:backgroundTint="@color/riotColor"
+                android:layout_marginLeft="150dp"
+                android:id="@+id/btSaveNew"
+                android:text="Guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
 
     </RelativeLayout>

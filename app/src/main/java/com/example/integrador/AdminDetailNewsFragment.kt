@@ -62,9 +62,10 @@ class AdminDetailNewsFragment : Fragment() {
     }
     fun saveNew(title: String, subtitle: String, context: String, imageUrl: String) {
 
-        val updateNew = ApiRest.upNew(title,subtitle,context,imageUrl)
+        val data = ApiRest.upNew.Data(title, subtitle, context, imageUrl)
+        val updateNew = ApiRest.upNew(data)
 
-        val call = ApiRest.service.updateNew(newId = new?.id.toString(), request = updateNew, apikey = key)
+        val call = ApiRest.service.updateNew(apikey = "Bearer $key", newId = new?.id.toString(), request = updateNew)
 
         call.enqueue(object : Callback<EditNewResponse> {
             override fun onResponse(call: Call<EditNewResponse>, response: Response<EditNewResponse>) {
@@ -73,7 +74,7 @@ class AdminDetailNewsFragment : Fragment() {
                 if (response.isSuccessful && body != null) {
                     var editedResponse = response.body()
                     print(editedResponse)
-                    goToFragment(NewsFragment())
+                    goToFragment(AdminNewsFragment())
 
 
 

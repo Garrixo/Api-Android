@@ -21,7 +21,6 @@ import retrofit2.Response
 
 class RegisterFragment : Fragment() {
 
-    lateinit var navView: BottomNavigationView
 
     val TAG = "MainActivity"
     lateinit var inputLayoutName: TextInputEditText
@@ -56,8 +55,6 @@ class RegisterFragment : Fragment() {
 
 
 
-        navView = view.findViewById(R.id.bottom_nav)
-        navView.visibility = View.GONE
 
         inputLayoutName= view.findViewById(R.id.etName)
         inputLayoutSurname= view.findViewById(R.id.etSurname)
